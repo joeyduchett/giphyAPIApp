@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Squada One', cursive;
+}
+
+body {
+    background-color: #40b05c;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 7% 20% 73%;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+
+.grid-header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    text-align: center;
+    border-bottom: darkgreen 3px double; 
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 8px 1px;
+    border-radius: 0 0 10px 10px;
+}
+
+.button-adder {
+    align-self: center;
+    justify-self: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    
+}
+h1 {
+
+}
+input[type=text] {
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: 2px solid lightgreen;
+  }
+
+  input[type=text]:focus {
+    border: 2px solid darkgreen;
+  }
+
+  input[type=button] {
+    width: 80px;
+    height: 40px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+
+.grid-buttons {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    
+}
+
+.grid-gif-holder {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    min-height: 100vh;
+    overflow: auto;
+    border-left: darkgreen 3px double; 
+    box-shadow: 1px 1px 8px 1px;
+    border-radius: 0 0 10px 10px;
+}
+
+button {
+    height: 60px;
+    width: 150px;
+    margin: 30px;
+    background-color:#396444;
+    border: black 2px solid;
+    border-radius: 10px;
+    color: white;
+    font-size: 24px;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
