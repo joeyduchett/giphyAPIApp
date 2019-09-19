@@ -3,7 +3,8 @@ $(document).ready(function () {
     for (let i = 0; i < buttonArray.length; i++) {
         $(".grid-buttons").append("<button type='button' class='btn'>" + buttonArray[i] + "</button>");
     };
-    $("input[type=button]").click(function () {
+
+    $("input[type=button]").on('click', function () {
         event.preventDefault();
         if ($("input[type=text]").val().trim() === "") {
             return;
@@ -13,7 +14,8 @@ $(document).ready(function () {
         $(".grid-buttons").append("<button type='button' class='btn'>" + newBtn + "</button>");
         $("form")[0].reset();
     });
-    $('.btn').click(function(){
+
+    $('.grid-buttons').on('click', ".btn", function (){
         console.log(this + " has been clicked")
         $(".grid-gif-holder").empty();
         let search = $(this).text();
@@ -23,17 +25,24 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: "GET"
-            // dataType: JSON
         })
             .then(function (response) {
                 console.log(response);
                 for (var i = 0; i < response.data.length; i++)
-                    //    let gifUrl = response.data[i].url;
-                    $(".grid-gif-holder").append("<img src=" + '"' + response.data[i].images.fixed_height_downsampled.url + '"' + ">" + "</img>");
+                    $(".grid-gif-holder").append("<img src=" + '"' + response.data[i].images.fixed_height_still.url + '"' + "class='gif'>" + "</img>");
             });
-
-
-
     });
-
+    $('.grid-gif-holder').on('click', '.gif', function() {
+        let src = $(this).attr("src");
+      if($(this).hasClass('playing')){
+         //stop
+         $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
+         $(this).removeClass('playing');
+      } else {
+        //play
+        $(this).addClass('playing');
+        $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
+      }
+    });
+    
 });
